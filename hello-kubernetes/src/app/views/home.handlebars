@@ -1,0 +1,93 @@
+<canvas id="donut"></canvas>
+
+<div id="message">
+  {{ message }}
+</div>
+<div id="info">
+  <table>
+    <tr>
+      <th>namespace:</th>
+      <td>{{ namespace }}</td>
+    </tr>
+    <tr>
+      <th>pod:</th>
+      <td>{{ pod }}</td>
+    </tr>
+    <tr>
+      <th>node:</th>
+      <td>{{ node }}</td>
+    </tr>
+  </table>
+</div>
+<div id="footer">
+  {{ container }}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+<script src="/static/donut.js"></script>
+<script>
+  window.onload = function() {
+    renderDonut();
+  }
+</script>
+
+<style>
+  body {
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+  }
+
+  #message, #info, #footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  #message {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  #info {
+    margin-top: 50px;
+  }
+
+  #info table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  #info th, #info td {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid white;
+  }
+
+  #info th {
+    width: 120px;
+  }
+
+  #footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  #donut {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+</style>
